@@ -7,8 +7,43 @@
 		<link rel="stylesheet" type="text/css" href="../styles/newspaperStyle.css">
 		<link rel="stylesheet" type="text/css" href="../styles/footerStyle.css">
 		<link rel="stylesheet" type="text/css" href="../styles/headerStyle.css">
+		<script type="text/javascript">
+			function NewsPaper(path, edition_number, date, annee) {
+				this.path = path;
+				this.edition_number = edition_number;
+				this.date = date;
+				this.annee = annee;
+			}
+
+			const editions = [
+				new NewsPaper("../documents/LES_BREVES_DE_ST_AS_-_JOURNAL1_octobre2021_22_2_VR.pdf", 1, "Octobre 2021", "2021-2022"),
+				new NewsPaper("../documents/LES_BREVES_DE_ST_AS_-_JOURNAL2_decembre2021_22_2.pdf", 2, "Decembre 2021", "2021-2022")
+			]
+
+			var annees = []
+
+			function load() {
+				editions.forEach((item) => addToPage(item));
+
+				var frames = document.getElementsByClassName("iframe");
+
+				console.log(frames);
+			}
+
+			function addToPage(item) {
+				if (!annees.includes(item.annee)) {
+					annees.push(item.annee);
+					var page = document.getElementById("main");
+					page.innerHTML = page.innerHTML + "<div class=\"year\" id=\"" + item.annee + "\"><h1>Année scolaire " + item.annee + "</h1></div>";
+				}
+				var section = document.getElementById(item.annee);
+				section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<iframe class=\"iframe\" src=\"" + item.path + "#toolbar=0\"></iframe>\n<a href=\"" + item.path + "\" target=\"_blank\">Voir</a>";
+			}
+
+			document.addEventListener("DOMContentLoaded", function() {load()}, false)
+		</script>
 	</head>
-	<body>
+	<body id="body">
 		<!-- Header -->
 		<header>
 			<img class="font-nav" src="../img/main/font-nav.png">
@@ -23,10 +58,8 @@
 		</header>
 
 		<!-- Page -->
-		<div class="download-div">
-			<h1>Année scolaire 2021-2022</h1>
-			<h2>Octobre 2021 <span>(<a href="../documents/LES_BREVES_DE_ST_AS_-_JOURNAL1_octobre2021_22_2_VR.pdf" target="_blank">view</a>)</span></h2>
-			<h2>Décembre 2021 <span>(<a href="../documents/LES_BREVES_DE_ST_AS_-_JOURNAL2_decembre2021_22_2.pdf" target="_blank">view</a>)</span></h2>
+		<div class="download-div" id="main">
+			
 		</div>
 
 		<!-- Footer -->

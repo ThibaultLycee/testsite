@@ -1,0 +1,11 @@
+iframe {
+	height: 400px;
+	overflow: hidden;
+}
+
+iframe embed {
+	height: 100%;
+	display: none;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
