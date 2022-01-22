@@ -11,3 +11,13 @@ iframe {
 .download-link:hover {
 	text-decoration: underline;
 }
+
+img.thumbmails {
+	height: 800px;
+	width: auto;
+}
+
+hr {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}

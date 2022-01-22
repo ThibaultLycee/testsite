@@ -16,8 +16,8 @@
 			}
 
 			const editions = [
-				new NewsPaper("../documents/LES_BREVES_DE_ST_AS_-_JOURNAL1_octobre2021_22_2_VR", 1, "Octobre 2021", "2021-2022"),
-				new NewsPaper("../documents/LES_BREVES_DE_ST_AS_-_JOURNAL2_decembre2021_22_2", 2, "Decembre 2021", "2021-2022")
+				new NewsPaper("LES_BREVES_DE_ST_AS_-_JOURNAL1_octobre2021_22_2_VR", 1, "Octobre 2021", "2021-2022"),
+				new NewsPaper("LES_BREVES_DE_ST_AS_-_JOURNAL2_decembre2021_22_2", 2, "Decembre 2021", "2021-2022")
 			]
 
 			var annees = []
@@ -39,9 +39,9 @@
 				const isMobile = navigator.userAgentData.mobile;
 				var section = document.getElementById(item.annee);
 				if (isMobile) {
-					section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<img src=\"../img/thumbmails/" + item.path + "/" + item.path + "-01.png\">\n<a href=\"" + item.path + ".pdf\" target=\"_blank\" class=\"download-link\">Télécharger</a>";
+					section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<img class=\"thumbmails\" src=\"../img/thumbmails/" + item.path + "/" + item.path + "-01.png\">\n<br>\n<a href=\"../documents/" + item.path + ".pdf\" target=\"_blank\" class=\"download-link\">Télécharger</a>\n<hr>";
 				} else {
-					section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<iframe class=\"iframe\" src=\"" + item.path + ".pdf#toolbar=0\"></iframe>\n<br>\n<a href=\"" + item.path + ".pdf\" target=\"_blank\" class=\"download-link\">Télécharger</a>";
+					section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<iframe class=\"iframe\" src=\"../documents/" + item.path + ".pdf#toolbar=0\"></iframe>\n<br>\n<a href=\"../documents/" + item.path + ".pdf\" target=\"_blank\" class=\"download-link\">Télécharger</a>\n<hr>";
 				}
 				
 			}
