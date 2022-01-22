@@ -39,7 +39,9 @@
 				}
 				var section = document.getElementById(item.annee);
 
-				if (isMobileDevice()) {
+				var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+				if (isMobileDevice() && !isSafari) {
 					section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<img class=\"thumbmails\" src=\"../img/thumbmails/" + item.path + "/" + item.path + "-01.png\">\n<br>\n<a href=\"../documents/" + item.path + ".pdf\" target=\"_blank\" class=\"download-link\">Télécharger</a>\n<hr>";
 				} else {
 					section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<iframe class=\"iframe\" src=\"../documents/" + item.path + ".pdf#toolbar=0\"></iframe>\n<br>\n<a href=\"../documents/" + item.path + ".pdf\" target=\"_blank\" class=\"download-link\">Télécharger</a>\n<hr>";
@@ -47,7 +49,7 @@
 				
 			}
 
-			// Test
+			// Test 2
 
 			function isMobileDevice() {
 				let check = false;
