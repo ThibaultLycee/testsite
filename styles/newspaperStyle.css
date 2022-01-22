@@ -3,9 +3,11 @@ iframe {
 	overflow: hidden;
 }
 
-iframe embed {
-	height: 100%;
-	display: none;
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+.download-link {
+	text-decoration: none;
+	color: black;
+}
+
+.download-link:hover {
+	text-decoration: underline;
 }
