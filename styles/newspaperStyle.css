@@ -13,11 +13,12 @@ iframe {
 }
 
 img.thumbmails {
-	height: 800px;
-	width: auto;
+	height: auto;
+	width: 50%;
 }
 
 hr {
+	width: 60%;
 	margin-top: 25px;
 	margin-bottom: 25px;
 }
