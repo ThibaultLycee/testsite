@@ -23,22 +23,8 @@ p {
 	font-family: 'NotoSans';
 }
 
-img.class-photo {
-	max-width: 80%;
-    height: auto;
-    display: block;
-}
-
 /*div*/
 div.main-div {
 	width: 65%;
 	margin: auto;
 }
-
-div.download-div {
-	width: 50%;
-	margin: auto;
-	text-align: center;
-}
-
-div.team-div {}
