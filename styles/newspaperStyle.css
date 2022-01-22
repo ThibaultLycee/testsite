@@ -15,6 +15,8 @@ iframe {
 
 img.thumbmails {
 	height: auto;
+	max-height: 450px;
+	/*TEST*/
 	max-width: 80%;
 }
 
