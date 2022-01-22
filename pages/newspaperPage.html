@@ -36,8 +36,14 @@
 					var page = document.getElementById("main");
 					page.innerHTML = page.innerHTML + "<div class=\"year\" id=\"" + item.annee + "\"><h1>Année scolaire " + item.annee + "</h1></div>";
 				}
+				const isMobile = navigator.userAgentData.mobile;
 				var section = document.getElementById(item.annee);
-				section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<iframe class=\"iframe\" src=\"" + item.path + "#toolbar=0\"></iframe>\n<a href=\"" + item.path + "\" target=\"_blank\">Voir</a>";
+				if (isMobile) {
+					section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<a href=\"" + item.path + "\" target=\"_blank\">Voir</a>";
+				} else {
+					section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<iframe class=\"iframe\" src=\"" + item.path + "#toolbar=0\"></iframe>\n<a href=\"" + item.path + "\" target=\"_blank\">Voir</a>";
+				}
+				
 			}
 
 			document.addEventListener("DOMContentLoaded", function() {load()}, false)
