@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Les Brèves de St' As</title>
+		<meta charset="Unicode">
+		<link rel="stylesheet" type="text/css" href="../styles/style.css">
+		<link rel="stylesheet" type="text/css" href="../styles/newspaperStyle.css">
+		<link rel="stylesheet" type="text/css" href="../styles/footerStyle.css">
+		<link rel="stylesheet" type="text/css" href="../styles/headerStyle.css">
+		<script type="text/javascript">
+			function NewsPaper(path, edition_number, date, annee) {
+				this.path = path;
+				this.edition_number = edition_number;
+				this.date = date;
+				this.annee = annee;
+			}
+
+			const editions = [
+				new NewsPaper("JOURNAL_2020-2021", 0, "Année 2020-2021", "2020-2021"),
+				new NewsPaper("LES_BREVES_DE_ST_AS_-_JOURNAL1_octobre2021_22_2_VR", 1, "Octobre 2021", "2021-2022"),
+				new NewsPaper("LES_BREVES_DE_ST_AS_-_JOURNAL2_decembre2021_22_2", 2, "Decembre 2021", "2021-2022")
+			]
+
+			var annees = []
+
+			function load() {
+				editions.forEach((item) => addToPage(item));
+
+				var frames = document.getElementsByClassName("iframe");
+
+				console.log(frames);
+			}
+
+			function addToPage(item) {
+				if (!annees.includes(item.annee)) {
+					annees.push(item.annee);
+					var page = document.getElementById("main");
+					page.innerHTML = page.innerHTML + "<div class=\"year\" id=\"" + item.annee + "\"><h1>Année scolaire " + item.annee + "</h1></div>";
+				}
+				const isMobile = navigator.userAgentData.mobile;
+				var section = document.getElementById(item.annee);
+				if (isMobile) {
+					section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<img class=\"thumbmails\" src=\"../img/thumbmails/" + item.path + "/" + item.path + "-01.png\">\n<br>\n<a href=\"../documents/" + item.path + ".pdf\" target=\"_blank\" class=\"download-link\">Télécharger</a>\n<hr>";
+				} else {
+					section.innerHTML = section.innerHTML + "<h2>" + item.date + "</h2>\n<iframe class=\"iframe\" src=\"../documents/" + item.path + ".pdf#toolbar=0\"></iframe>\n<br>\n<a href=\"../documents/" + item.path + ".pdf\" target=\"_blank\" class=\"download-link\">Télécharger</a>\n<hr>";
+				}
+				
+			}
+
+			document.addEventListener("DOMContentLoaded", function() {load()}, false)
+		</script>
+	</head>
+	<body id="body">
+		<!-- Header -->
+		<header>
+			<img class="font-nav" src="../img/main/font-nav.png">
+			<!-- Navigation -->
+			<nav class='menu-nav'>
+				<ul>
+					<li class="btn-nav"><a href="index.html">ACCEUIL</a></li>
+					<li class="btn-nav"><a href="#">NUMÉROS PRÉCÉDENTS</a></li>
+					<li class="btn-nav"><a href="teamPage.html">NOTRE ÉQUIPE</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Page -->
+		<div class="download-div" id="main">
+			
+		</div>
+
+		<!-- Footer -->
+		<footer>
+			<!-- Nous Contacter -->
+			<ul class="footer-contact footer-in footer-first">
+				<li class="footer-li footer-title">Nous contacter</li>
+				<li class="footer-li">
+					<a href="https://www.instagram.com/lesbrevesdesaintas/" target="_blank">
+						<p class="footer-link"><img src="../img/main/insta.jpg" alt="Logo Instagram" class="insta-img footer-img">@lesbrevesdesaintas</p>
+					</a>
+				</li>
+				<li class="footer-li">
+					<a href="mailto:journal.lesbrevesdesaintas@gmail.com">
+						<p class="footer-link"><img src="../img/main/mail-img.png" alt="Logo Mail" class="mail-img footer-img">journal.lesbrevesdesaintas</p>
+					</a>
+				</li>
+			</ul>
+			<!-- Le Lycee -->
+			<ul class="footer-lycee footer-in">
+				<li class="footer-li footer-title">Le Lycée</li>
+				<li class="footer-li">
+					<a href="https://www.instagram.com/lycee_saint_aspais/" target="_blank">
+						<p class="footer-link"><img src="../img/main/insta.jpg" alt="Logo Instagram" class="footer-insta-img footer-img">@lycee_saint_aspais</p>
+					</a>
+				</li>
+				<li class="footer-li">
+					<a href="http://www.lycee-st-aspais.org/" target="_blank">
+						<p class="footer-link"><img src="../img/main/logo-lycee.png" alt="Logo Lycee" class="footer-lycee-img footer-img">Institution Saint Aspais</p>
+					</a>
+				</li>					
+			</ul>
+		</footer>
+	</body>
+</html>
